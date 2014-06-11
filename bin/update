@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#
+# Simple procedure to be run from cron (nightly) that fetches
+# the latest version of the buildslave account files and
+# reinstalls the crontab.
+#
+
+    git pull
+    crontab ~/lib/crontab
+
