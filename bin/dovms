@@ -1,0 +1,30 @@
+#!/bin/sh
+
+    if [ $# -lt 2 ]; then
+        echo "error: insufficient arguments"
+        exit 1
+    fi
+
+    status=0
+    logfile=~/tmp/$$.log
+    host=$1; shift
+
+    dcl=""
+    while [ $# != 0 ]; do
+        dcl="$dcl $1"
+        shift
+    done
+
+    rsh $host $dcl 2>&1 | tee $logfile
+    if [ -e $logfile ]; then
+        egrep -qi '^%.*-[EFW]-.*,' $logfile
+        if [ $? != 1 ]; then
+            status=1
+        fi
+
+        rm $logfile
+    else
+        status=1
+    fi
+
+    exit $status
