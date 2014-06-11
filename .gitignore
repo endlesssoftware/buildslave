@@ -1,0 +1,19 @@
+# VMS stuff...
+#
+.\$ADF\$*
+.\$NFS\$*
+*\;*
+*-*/*
+*.jou
+*.tex
+*.dvi_*
+*.int_*
+*.tc[befi]
+*.log
+*.LOG
+
+# Ignore projects
+#
+mmk/
+pjlcp/
+
