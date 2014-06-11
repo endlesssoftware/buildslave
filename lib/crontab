@@ -1,0 +1,9 @@
+# ~/lib/crontab: buildslave crontab
+# This crontab is used by the buildslave account on UNIX systems to trigger
+# scheuled tasks.  The most important task of course, is the checking for
+# any updates to the repository and reinstalling the crontab :-)
+#
+#m h  dom mon dow command
+00 23 *   *   *   ~/bin/update
+@reboot           ~/bin/startup
+#
