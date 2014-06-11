@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#
+# Simple procedure to be run from cron (@reboot) that starts up all
+# the buildbot slave process for the various projects.
+#
+
+    for dir in `ls -d $HOME/*`; do
+        if [ -d $dir -a -e $dir/buildbot.tac ]; then
+            echo "startup: info: found project '`basename $dir`'"
+            buildslave start $dir
+        fi
+    done
+
