@@ -3,4 +3,7 @@ prompt="buildslave_$node"
 
 PS1="$prompt> "
 PS2="$prompt_ "
-export PS1 PS2
+
+PATH=~/bin:$PATH
+
+export PATH PS1 PS2
