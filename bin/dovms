@@ -17,7 +17,7 @@
 
     rsh $host $dcl 2>&1 | tee $logfile
     if [ -e $logfile ]; then
-        egrep -qi '^%.*-[EFW]-.*,' $logfile
+        egrep -qi '^%.*-[EF]-.*,' $logfile
         if [ $? != 1 ]; then
             status=1
         fi
